@@ -1,0 +1,806 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #6366f1;
+}
+
+li {
+    list-style: none;
+}
+
+h2 {
+    color: #3e4455;
+}
+
+/* Estilos para a tabela de demissões */
+#demissoesTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#demissoesTable th,
+#demissoesTable td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#demissoesTable th {
+    background-color: #293b5f;
+    color: #fff;
+    font-weight: 600;
+}
+
+#demissoesTable tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+#demissoesTable tbody tr:last-child td {
+    border-bottom: none;
+}
+
+#demissoesTable a {
+    color: #293b5f;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#demissoesTable a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para os botões */
+.button-container {
+    margin-bottom: 20px;
+}
+
+.button-container .btn {
+    padding: 10px 20px;
+    background-color: #293b5f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.button-container .btn:hover {
+    background-color: #1e2a3f;
+}
+
+img {
+    vertical-align: middle;
+    max-width: 100%;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    display: flex;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    background-color: #293b5f;
+}
+
+#toggler {
+    display: none;
+}
+
+.toggle-btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #FFF;
+    padding: 1rem 1.5rem;
+    width: max-content;
+}
+
+.sidebar-nav {
+    width: 85px;
+    min-width: 85px;
+    padding: 25px 0;
+    flex: 1 1 auto;
+    transition: all .25s ease-in-out;
+}
+
+#sidebar input[type="checkbox"]:checked~.sidebar-nav {
+    width: 260px;
+    min-width: 260px;
+}
+
+a.sidebar-link {
+    padding: .625rem 1.625rem;
+    color: #FFF;
+    display: block;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link i {
+    font-size: 1.1rem;
+    margin-right: .75rem;
+}
+
+a.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, .075);
+    border-left: 3px solid #3b7ddd;
+}
+
+.financeiro-title-container {
+    display: flex;
+    align-items: center; /* Alinha o título e a barra de pesquisa verticalmente */
+    justify-content: space-between; /* Espaço entre o título e a barra de pesquisa */
+    padding: 20px;
+    background-color: #f5f5f5; /* Cor de fundo para destacar (opcional) */
+    width: 100%; /* Ocupa toda a largura disponível */
+}
+
+.financeiro-title {
+    font-size: 30px;
+    font-weight: 600;
+    color: #333;
+    margin: 0; /* Remove margens padrão */
+}
+
+.nav-search {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre a barra de pesquisa e o botão */
+}
+
+.nav-search .search-query {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    width: 250px; /* Largura da barra de pesquisa */
+}
+
+.nav-search .btn {
+    background-color: #727cf5;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-search .btn:hover {
+    background-color: #5a64d1;
+}
+
+#clientes {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+#clientes th,
+#clientes td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#clientes th {
+    background-color: #293b5f;
+    color: #fff;
+}
+
+#clientes tbody tr:hover {
+    background-color: #293b5f;
+}
+
+#clientes tbody tr:hover td {
+    color: #fff;
+}
+
+#clientes tbody tr:hover a {
+    color: #fff;
+}
+
+.interaction-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.interaction-form .form-group {
+    margin-bottom: 15px;
+}
+
+.interaction-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+/* Estilos para a tabela de folha de pagamento */
+#folhaTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#folhaTable th,
+#folhaTable td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#folhaTable th {
+    background-color: #293b5f;
+    color: #fff;
+    font-weight: 600;
+}
+
+#folhaTable tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+#folhaTable tbody tr:last-child td {
+    border-bottom: none;
+}
+
+#folhaTable a {
+    color: #293b5f;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#folhaTable a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para os botões */
+.button-container {
+    margin-bottom: 20px;
+}
+
+.button-container .btn {
+    padding: 10px 20px;
+    background-color: #293b5f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.button-container .btn:hover {
+    background-color: #1e2a3f;
+}
+
+.interaction-form select,
+.interaction-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.interaction-form button {
+    background-color: #293b5f;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.interaction-form button:hover {
+    background-color: #1e2a3f;
+}
+
+.button-container {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.ticket-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.ticket-form .form-group {
+    margin-bottom: 15px;
+}
+
+.ticket-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.ticket-form input,
+.ticket-form select,
+.ticket-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.ticket-form button {
+    background-color: #293b5f;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ticket-form button:hover {
+    background-color: #1e2a3f;
+}
+
+#tickets {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+#tickets th,
+#tickets td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#tickets th {
+    background-color: #293b5f;
+    color: #fff;
+}
+
+#tickets tbody tr:hover {
+    background-color: #293b5f;
+}
+
+#tickets tbody tr:hover td {
+    color: #fff;
+}
+
+#tickets tbody tr:hover a {
+    color: #fff;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+#sidebar input[type="checkbox"]:not(:checked)~* .sidebar-link span {
+    display: none;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.dashboard-navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 1rem 1.5rem;
+    background-color: #f5f5f5;
+}
+
+.dashboard-navbar form {
+    display: none;
+}
+
+.dashboard-navbar .navbar-content {
+    display: flex;
+    flex-grow: 1;
+    min-width: 200px;
+}
+
+.dashboard-navbar .main-nav {
+    margin-left: auto;
+}
+
+.user-link {
+    position: relative;
+}
+
+.avatar {
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    display: block;
+}
+
+.user-link-dropdown {
+    display: none;
+}
+
+.user-link:hover .user-link-dropdown {
+    position: absolute;
+    right: 0;
+    left: auto;
+    min-width: 10rem;
+    background-color: #FFF;
+    display: block;
+    border: 1px solid #d2d2d2;
+    box-shadow: 0 .1rem .2rem rgba(255, 255, 255, .075);
+    animation: fade .5s;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.chart-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#funnelChart {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.dashboard-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card .title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card .amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #293b5f;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.card:hover .amount {
+    color: #ffffff;
+}
+
+.card .badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.text-success-bg {
+    background-color: #71c664;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 0.85rem;
+}
+
+.text-success-ng {
+    background-color: #ee2121;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 0.85rem;
+}
+
+.badge-text {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+#funnelTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#funnelTable th,
+#funnelTable td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#funnelTable th {
+    background-color: #293b5f;
+    color: #fff;
+    font-weight: 600;
+}
+
+#funnelTable tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+#funnelTable tbody tr:last-child td {
+    border-bottom: none;
+}
+
+#funnelTable a {
+    color: #293b5f;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#funnelTable a:hover {
+    text-decoration: underline;
+}
+
+.footer-wrap {
+    text-align: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.footer-wrap p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.content {
+    padding: 2rem;
+    flex: 1 1 auto;
+}
+
+.pendente {
+    color: red;
+}
+
+#posts {
+    border-collapse: collapse;
+    margin: 30px auto;
+    width: 100%;
+}
+
+#posts thead tr {
+    color: #FFF;
+    text-align: left;
+    background-color: #293b5f;
+}
+
+#posts th,
+#posts td {
+    padding: 12px 15px;
+}
+
+#posts tbody tr:nth-of-type(2n) {
+    background-color: #f5f5f5;
+}
+
+.social-icons {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .dashboard-navbar form {
+        display: block;
+        max-width: 320px;
+    }
+
+    .nav-search {
+        padding: 20px 20px 20px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .nav-search .search-query {
+        flex: 1 1 auto;
+        width: 1%;
+        height: calc(1.5em + .9rem + 2px);
+        padding: 0 20px;
+        border: none;
+        color: #3e4455;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .nav-search .search-query:focus-visible {
+        outline: none;
+    }
+
+    .nav-search .btn {
+        border: 0;
+        background-color: #727cf5;
+        color: #FFF;
+        padding: 0.45rem 0.9rem;
+        font-family: 'Poppins', sans-serif;
+        cursor: pointer;
+    }
+
+    .dashboard-card {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .social-icons {
+        display: block;
+    }
+
+    .social-icons li:not(:last-child) {
+        margin-right: 0.5rem;
+        border-right: 1px solid #000;
+        padding-right: 0.7rem;
+    }
+
+    .social-icons li {
+        display: inline-block;
+    }
+
+    .social-icons li a {
+        color: #000;
+    }
+}
+
+.financeiro-title {
+    font-size: 30px;
+    font-weight: 600;
+    color: #333;
+}
+
+#contratacoesTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+#contratacoesTable th,
+#contratacoesTable td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#contratacoesTable th {
+    background-color: #293b5f;
+    color: #fff;
+}
+
+#contratacoesTable tbody tr:hover {
+    background-color: #293b5f;
+}
+
+#contratacoesTable tbody tr:hover td {
+    color: #fff;
+}
+
+#contratacoesTable tbody tr:hover a {
+    color: #fff;
+}
+
+/* Estilos para o formulário de detalhes da folha de pagamento */
+.ticket-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.ticket-form .form-group {
+    margin-bottom: 15px;
+}
+
+.ticket-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #3e4455;
+}
+
+.ticket-form input[type="text"],
+.ticket-form input[type="number"],
+.ticket-form input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.ticket-form input[readonly] {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+.ticket-form button {
+    background-color: #293b5f;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.ticket-form button:hover {
+    background-color: #1e2a3f;
+}

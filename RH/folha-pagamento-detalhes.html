@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RH - Detalhes da Folha de Pagamento</title>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar do RH -->
+        <aside id="sidebar">
+            <input type="checkbox" name="" id="toggler">
+            <label for="toggler" class="toggle-btn">
+                <i class="lni lni-grid-alt"></i>
+            </label>
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a href="rh-contratacoes.html" class="sidebar-link">
+                        <i class="lni lni-briefcase"></i>
+                        <span>Contratações</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="rh-demissoes.html" class="sidebar-link">
+                        <i class="lni lni-close"></i>
+                        <span>Demissões</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="rh-ferias.html" class="sidebar-link">
+                        <i class="lni lni-calendar"></i>
+                        <span>Cálculos de Férias</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="rh-folha.html" class="sidebar-link">
+                        <i class="lni lni-money-protection"></i>
+                        <span>Folha de Pagamento</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="index.html" class="sidebar-link">
+                    <i class="lni lni-exit"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <div class="main">
+            <!-- Navbar -->
+            <div class="dashboard-navbar">
+                <div class="financeiro-title-container">
+                    <h2 class="financeiro-title">RH - Detalhes da Folha de Pagamento</h2>
+                </div>
+                <div class="navbar-content">
+                    <ul class="main-nav">
+                        <li class="user-link">
+                            <a href="#">
+                                <img src="account.png" alt="Profile" class="avatar">
+                            </a>
+                            <div class="user-link-dropdown">
+                                <a href="#" class="dropdown-item">Perfil</a>
+                                <a href="index.html" class="dropdown-item">Sair</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Conteúdo da Página -->
+            <div class="content">
+                <h2>Detalhes do Pagamento</h2>
+                <form id="folhaDetalhesForm" class="ticket-form">
+                    <div class="form-group">
+                        <label for="nome">Nome do Funcionário:</label>
+                        <input type="text" id="nome" name="nome" value="Carlos Silva" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="cargo">Cargo:</label>
+                        <input type="text" id="cargo" name="cargo" value="Analista de RH" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="salarioBase">Salário Base (R$):</label>
+                        <input type="number" id="salarioBase" name="salarioBase" value="5000.00" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="descontos">Descontos (R$):</label>
+                        <input type="number" id="descontos" name="descontos" value="500.00" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="valorLiquido">Valor Líquido (R$):</label>
+                        <input type="number" id="valorLiquido" name="valorLiquido" value="4500.00" step="0.01" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="dataPagamento">Data de Pagamento:</label>
+                        <input type="date" id="dataPagamento" name="dataPagamento" value="2023-12-01" required>
+                    </div>
+                    <button type="button" class="btn" onclick="salvarAlteracoes()">Salvar Alterações</button>
+                </form>
+            </div>
+
+            <footer class="footer-wrap">
+                <p>&copy; 2023 RH - Detalhes da Folha de Pagamento</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        function salvarAlteracoes() {
+            const salarioBase = parseFloat(document.getElementById('salarioBase').value);
+            const descontos = parseFloat(document.getElementById('descontos').value);
+            const valorLiquido = salarioBase - descontos;
+
+            document.getElementById('valorLiquido').value = valorLiquido.toFixed(2);
+
+            alert("Alterações salvas com sucesso!");
+        }
+    </script>
+</body>
+
+</html>
