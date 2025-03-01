@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botões Redondos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos globais */
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        a {
+            text-decoration: none;
+            color: #6366f1;
+        }
+
+        /* Estilo para o container dos botões */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Espaçamento entre os botões */
+            margin-top: 50px;
+        }
+
+        /* Estilo para os botões redondos */
+        .round-button {
+            display: inline-block;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #293b5f;
+            color: white;
+            text-align: center;
+            line-height: 120px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+
+        .round-button:hover {
+            background-color: #3b7ddd;
+            transform: translateY(-5px);
+        }
+
+        /* Estilo para o título */
+        .financeiro-title-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .financeiro-title {
+            font-size: 30px;
+            font-weight: 600;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Título -->
+    <div class="financeiro-title-container">
+        <h1 class="financeiro-title">Selecione uma Área</h1>
+    </div>
+
+    <!-- Container dos botões -->
+    <div class="button-container">
+        <!-- Botão RH -->
+        <a href="RH/index.html" class="round-button">RH</a>
+
+        <!-- Botão Comercial -->
+        <a href="Comercial/index.html" class="round-button">Comercial</a>
+
+        <!-- Botão Financeiro -->
+        <a href="Financeiro/index.html" class="round-button">Financeiro</a>
+    </div>
+
+</body>
+</html>
